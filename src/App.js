@@ -1,8 +1,9 @@
 // import logo from "./logo.svg";
+// import { useState } from "react";
 import "./App.css";
 import FriendsList from "./FriendsList";
 import SplitForm from "./SplitForm";
-
+import AddFriend from "./AddFriend";
 const friends = [
   {
     id: 1,
@@ -20,9 +21,17 @@ const friends = [
 ];
 
 function App() {
+
+
   return (
-    <div className="d-flex align-items-center justify-content-center" style={{ height: "100vh" , width: "100vw"}}>
-      <FriendsList friends={friends} />
+    <div
+      className="d-flex align-items-center justify-content-center"
+      style={{ height: "100vh", width: "100vw" }}
+    >
+      <div className="me-4">
+        <FriendsList friends={friends} />
+        <AddFriend />
+      </div>
       <SplitForm />
     </div>
   );

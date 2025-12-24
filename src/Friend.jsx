@@ -1,8 +1,6 @@
 const Friend = ({ friend }) => {
-  console.log(friend);
-
   return (
-    <div className="d-flex justify-content-between mb-3">
+    <div className="d-flex justify-content-between mb-3 p-2 bg-body-secondary rounded">
       <div>
         <img
           style={{ width: "75px", borderRadius: "50%" }}
