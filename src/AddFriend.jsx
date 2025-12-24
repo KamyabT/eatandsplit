@@ -1,8 +1,19 @@
 import { useState } from "react";
 
-const AddFriend = () => {
-  function handleAddFriendClick() {
+const AddFriend = ({ friends, setFriends }) => {
+  function showAddFriend() {
     setAddNewFriend((prev) => !prev);
+  }
+
+  function handleAddNewFriend(e) {
+    e.preventDefault();
+    console.log("form submitted", friends);
+    const newFriend = {
+      name: NewFriendName,
+      id: Math.floor(Math.random() * 1000),
+      img: "https://randomuser.me/api/portraits/lego/5.jpg",
+    };
+    setFriends([...friends, newFriend]);
   }
 
   const [NewFriendName, setNewFriendName] = useState("");
@@ -13,7 +24,11 @@ const AddFriend = () => {
     <>
       <div className="d-flex flex-column bg-warning-subtle p-2 rounded">
         {AddNewFriend && (
-          <form className="d-flex flex-column p-4 " style={{ width: "480px" }}>
+          <form
+            onSubmit={handleAddNewFriend}
+            className="d-flex flex-column p-4 "
+            style={{ width: "480px" }}
+          >
             <label className="d-flex justify-content-between p-2">
               <span>Name:</span>
               <input
@@ -40,7 +55,7 @@ const AddFriend = () => {
           className={`btn bg-warning d-flex align-self-end w-50 justify-content-center ${
             AddNewFriend ? "mt-3" : ""
           }`}
-          onClick={handleAddFriendClick}
+          onClick={showAddFriend}
         >
           {AddNewFriend ? "Close" : "Add Friend"}
         </button>

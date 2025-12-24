@@ -11,9 +11,11 @@ const Friend = ({ friend }) => {
       </div>
       <div className="d-flex flex-column ">
         <h3>{friend.name}</h3>
-        <span>Lorem ipsum dolor sit amet.</span>
+        {friend.balance < 0 && <span className="text-danger">{friend.name} owes {friend.balance}</span>}
+        <span>{friend.balance}</span>
+        <span>{friend.balance}</span>
       </div>
-      <div>
+      <div className="d-flex align-items-center">
         <button className="btn btn-warning">Select</button>
       </div>
     </div>

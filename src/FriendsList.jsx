@@ -1,6 +1,5 @@
 import Friend from "./Friend";
 const FriendsList = ({ friends }) => {
-  console.log(friends);
 
   return (
     <div className="d-flex flex-column justify-content-center" style={{ width: "480px" }}>
