@@ -14,7 +14,7 @@ const SplitForm = () => {
         </label>
         <label className="d-flex align-items-center justify-content-between p-2">
           <span>Friend Expense:</span>
-          <input className="form-control w-50" type="text" />
+          <input className="form-control w-50" type="number" disabled />
         </label>
         <label className="d-flex align-items-center justify-content-between p-2">
           <span>Who is paying the bill?</span>

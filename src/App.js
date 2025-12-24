@@ -5,6 +5,7 @@ import FriendsList from "./FriendsList";
 import SplitForm from "./SplitForm";
 import AddFriend from "./AddFriend";
 import { useState } from "react";
+import Button from "./Button";
 const friends = [
   {
     id: 1,
@@ -18,19 +19,28 @@ const friends = [
     name: "Ali",
     age: 25,
     img: "https://randomuser.me/api/portraits/men/76.jpg",
-    balance: 20,
+    balance: 0,
   },
   {
     id: 3,
     name: "Sara",
     age: 20,
     img: "https://randomuser.me/api/portraits/women/65.jpg",
-    balance: -10,
+    balance: 10,
   },
 ];
 
 function App() {
+  const [AddNewFriend, setAddNewFriend] = useState(false);
   const [Friends, setFriends] = useState(friends);
+
+  <button className={` ${AddNewFriend ? "mt-3" : ""}`} onClick={showAddFriend}>
+    {AddNewFriend ? "Close" : "Add Friend"}
+  </button>;
+
+  function showAddFriend() {
+    setAddNewFriend((prev) => !prev);
+  }
 
   return (
     <div
@@ -39,7 +49,8 @@ function App() {
     >
       <div className="me-4">
         <FriendsList friends={Friends} />
-        <AddFriend friends={Friends} setFriends={setFriends} />
+        {AddNewFriend && <AddFriend friends={Friends} setFriends={setFriends} />}
+        <Button onClick={showAddFriend}>{AddNewFriend ? "Close" : "Add Friend"}</Button>
       </div>
       <SplitForm />
     </div>

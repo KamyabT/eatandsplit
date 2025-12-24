@@ -17,11 +17,11 @@ const Friend = ({ friend }) => {
           </span>
         )}
         {friend.balance === 0 && (
-          <span className="text-danger">you and {friend.name} are even</span>
+          <span className="text-info">You and {friend.name} are even</span>
         )}
         {friend.balance > 0 && (
           <span className="text-danger">
-            you owes {friend.name} ${friend.balance}
+            You owes {friend.name} ${friend.balance}
           </span>
         )}
       </div>
