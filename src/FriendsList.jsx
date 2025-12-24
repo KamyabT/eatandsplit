@@ -3,11 +3,10 @@ const FriendsList = ({ friends }) => {
   console.log(friends);
 
   return (
-    <div className="d-flex flex-column bg-info p-4">
+    <div className="d-flex flex-column p-4" style={{ width: "480px" }}>
       {friends.map((friend) => (
         <Friend key={friend.id} friend={friend} />
       ))}
-      {/* <Friend /> */}
     </div>
   );
 };

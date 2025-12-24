@@ -2,7 +2,7 @@ const Friend = ({ friend }) => {
   console.log(friend);
 
   return (
-    <div className="d-flex mb-3">
+    <div className="d-flex justify-content-between mb-3">
       <div>
         <img
           style={{ width: "75px", borderRadius: "50%" }}
@@ -13,10 +13,10 @@ const Friend = ({ friend }) => {
       </div>
       <div className="d-flex flex-column ">
         <h3>{friend.name}</h3>
-        <span>{friend.age}</span>
+        <span>Lorem ipsum dolor sit amet.</span>
       </div>
       <div>
-        <button>Select</button>
+        <button className="btn btn-warning">Select</button>
       </div>
     </div>
   );
