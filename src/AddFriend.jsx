@@ -12,6 +12,7 @@ const AddFriend = ({ friends, setFriends }) => {
       name: NewFriendName,
       id: Math.floor(Math.random() * 1000),
       img: "https://randomuser.me/api/portraits/lego/5.jpg",
+      balance: 0,
     };
     setFriends([...friends, newFriend]);
   }

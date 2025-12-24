@@ -11,9 +11,19 @@ const Friend = ({ friend }) => {
       </div>
       <div className="d-flex flex-column ">
         <h3>{friend.name}</h3>
-        {friend.balance < 0 && <span className="text-danger">{friend.name} owes {friend.balance}</span>}
-        <span>{friend.balance}</span>
-        <span>{friend.balance}</span>
+        {friend.balance < 0 && (
+          <span className="text-success">
+            {friend.name} owes you ${Math.abs(friend.balance)}
+          </span>
+        )}
+        {friend.balance === 0 && (
+          <span className="text-danger">you and {friend.name} are even</span>
+        )}
+        {friend.balance > 0 && (
+          <span className="text-danger">
+            you owes {friend.name} ${friend.balance}
+          </span>
+        )}
       </div>
       <div className="d-flex align-items-center">
         <button className="btn btn-warning">Select</button>
