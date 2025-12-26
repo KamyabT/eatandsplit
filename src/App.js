@@ -33,6 +33,7 @@ const friends = [
 function App() {
   const [AddNewFriend, setAddNewFriend] = useState(false);
   const [Friends, setFriends] = useState(friends);
+  const [selectedFriend, setSelectedFriend] = useState(null);
 
   <button className={` ${AddNewFriend ? "mt-3" : ""}`} onClick={showAddFriend}>
     {AddNewFriend ? "Close" : "Add Friend"}
@@ -42,17 +43,27 @@ function App() {
     setAddNewFriend((prev) => !prev);
   }
 
+  // function handleSelectFriend(friend) {
+  //   // setSelectedFriend((prev) => !prev);
+  //   console.log("Selected Friend:", friend.name, friend);
+  // }
+
+  function handleSelectFriend(friend) {
+    console.log("select done", friend);
+    setSelectedFriend(friend);
+  }
+
   return (
     <div
       className="d-flex align-items-center justify-content-center"
       style={{ height: "100vh", width: "100vw" }}
     >
       <div className="me-4">
-        <FriendsList friends={Friends} />
+        <FriendsList friends={Friends} onSelection={handleSelectFriend} selectedFriend={selectedFriend} />
         {AddNewFriend && <AddFriend friends={Friends} setFriends={setFriends} />}
         <Button onClick={showAddFriend}>{AddNewFriend ? "Close" : "Add Friend"}</Button>
       </div>
-      <SplitForm />
+      {selectedFriend && <SplitForm selectedFriend={selectedFriend} />}
     </div>
   );
 }

@@ -6,6 +6,7 @@ const SplitForm = () => {
         style={{ width: "480px" }}
         action=""
       >
+        <p>Split A bill with Friend</p>
         <label className="d-flex align-items-center justify-content-between p-2">
           <span>Bill amount:</span> <input className="form-control w-50" type="number" />
         </label>
