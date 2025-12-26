@@ -1,7 +1,8 @@
 // import { useState } from "react";
 
 const Friend = ({ friend, onSelection, selectedFriend }) => {
-  console.log(onSelection);
+  console.log(selectedFriend);
+  const isSelected = selectedFriend && selectedFriend.id === friend.id;
   return (
     <div className="d-flex justify-content-between mb-3 p-2 bg-body-secondary rounded">
       <div>
@@ -30,8 +31,7 @@ const Friend = ({ friend, onSelection, selectedFriend }) => {
       </div>
       <div className="d-flex align-items-center">
         <button className="btn btn-warning" onClick={() => onSelection(friend)}>
-          {/* {selectedFriend ? "Close" : "Select"} */}
-          select
+          {isSelected ? "Close" : "Select"}
         </button>
       </div>
     </div>

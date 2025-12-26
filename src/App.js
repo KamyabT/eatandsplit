@@ -43,14 +43,9 @@ function App() {
     setAddNewFriend((prev) => !prev);
   }
 
-  // function handleSelectFriend(friend) {
-  //   // setSelectedFriend((prev) => !prev);
-  //   console.log("Selected Friend:", friend.name, friend);
-  // }
 
   function handleSelectFriend(friend) {
-    console.log("select done", friend);
-    setSelectedFriend(friend);
+    setSelectedFriend((cur) => cur?.id === friend.id ? null : friend);
   }
 
   return (

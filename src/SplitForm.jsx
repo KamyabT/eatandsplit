@@ -1,4 +1,4 @@
-const SplitForm = () => {
+const SplitForm = ({ selectedFriend }) => {
   return (
     <>
       <form
@@ -6,7 +6,7 @@ const SplitForm = () => {
         style={{ width: "480px" }}
         action=""
       >
-        <p>Split A bill with Friend</p>
+        <p>Split a bill with {selectedFriend.name}</p>
         <label className="d-flex align-items-center justify-content-between p-2">
           <span>Bill amount:</span> <input className="form-control w-50" type="number" />
         </label>
@@ -20,8 +20,8 @@ const SplitForm = () => {
         <label className="d-flex align-items-center justify-content-between p-2">
           <span>Who is paying the bill?</span>
           <select className="form-select p-2 w-50" name="" id="">
-            <option value="">Select a friend 1</option>
-            <option value="">Select a friend 2</option>
+            <option value="">You</option>
+            <option value={selectedFriend.name}>{selectedFriend.name}</option>
           </select>
         </label>
         <button className="btn btn-dark mt-3">Split Bill</button>
