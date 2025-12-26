@@ -27,7 +27,7 @@ const SplitForm = ({ selectedFriend }) => {
           <span>Your Expense:</span>{" "}
           <input
             value={paidByUser}
-            onChange={(e) => setPaidByUser(Number(e.target.value))}
+            onChange={(e) => setPaidByUser((Number(e.target.value)) > bill ? paidByUser : (Number(e.target.value)))}
             className="form-control w-50"
             type="number"
           />
