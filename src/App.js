@@ -41,11 +41,13 @@ function App() {
 
   function showAddFriend() {
     setAddNewFriend((prev) => !prev);
+    setSelectedFriend(null);
   }
 
 
   function handleSelectFriend(friend) {
     setSelectedFriend((cur) => cur?.id === friend.id ? null : friend);
+    setAddNewFriend(false);
   }
 
   return (
