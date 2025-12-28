@@ -1,6 +1,7 @@
 // import { useState } from "react";
 
 const Friend = ({ friend, onSelection, selectedFriend }) => {
+  console.log(selectedFriend);
   const isSelected = selectedFriend?.id === friend.id;
   return (
     <div className="d-flex justify-content-between mb-3 p-2 bg-body-secondary rounded">

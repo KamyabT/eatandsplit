@@ -8,9 +8,8 @@ const SplitForm = ({ selectedFriend, onSplit }) => {
 
   function handleSplitBill(e) {
     e.preventDefault();
-    console.log("splited");
     if (!bill || !paidByUser) return;
-    onSplit(whoIsPaying === "user" ? paidByFriend : -paidByUser)
+    onSplit(whoIsPaying === "user" ? -paidByFriend : paidByUser)
   }
 
   return (

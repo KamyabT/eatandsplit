@@ -51,6 +51,13 @@ function App() {
 
   function onSplit(value) {
     console.log(value);
+    setFriends(Friends.map((friend)=>{
+      if(friend.id === selectedFriend.id){
+        console.log({...friend, balance: friend.balance + value} , "log");
+        return {...friend, balance: friend.balance + value}
+      }
+      return friend;
+    }))
   }
 
   return (
