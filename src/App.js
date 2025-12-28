@@ -44,10 +44,13 @@ function App() {
     setSelectedFriend(null);
   }
 
-
   function handleSelectFriend(friend) {
-    setSelectedFriend((cur) => cur?.id === friend.id ? null : friend);
+    setSelectedFriend((cur) => (cur?.id === friend.id ? null : friend));
     setAddNewFriend(false);
+  }
+
+  function onSplit(value) {
+    console.log(value);
   }
 
   return (
@@ -56,11 +59,15 @@ function App() {
       style={{ height: "100vh", width: "100vw" }}
     >
       <div className="me-4">
-        <FriendsList friends={Friends} onSelection={handleSelectFriend} selectedFriend={selectedFriend} />
+        <FriendsList
+          friends={Friends}
+          onSelection={handleSelectFriend}
+          selectedFriend={selectedFriend}
+        />
         {AddNewFriend && <AddFriend friends={Friends} setFriends={setFriends} />}
         <Button onClick={showAddFriend}>{AddNewFriend ? "Close" : "Add Friend"}</Button>
       </div>
-      {selectedFriend && <SplitForm selectedFriend={selectedFriend} />}
+      {selectedFriend && <SplitForm selectedFriend={selectedFriend} onSplit={onSplit} />}
     </div>
   );
 }

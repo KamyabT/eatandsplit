@@ -1,17 +1,24 @@
 import { useState } from "react";
 
-const SplitForm = ({ selectedFriend }) => {
+const SplitForm = ({ selectedFriend, onSplit }) => {
   const [bill, setBill] = useState("");
   const [paidByUser, setPaidByUser] = useState("");
   const [whoIsPaying, setWhoIsPaying] = useState("user");
   const paidByFriend = bill ? bill - paidByUser : "";
 
+  function handleSplitBill(e) {
+    e.preventDefault();
+    console.log("splited");
+    if (!bill || !paidByUser) return;
+    onSplit(whoIsPaying === "user" ? paidByFriend : -paidByUser)
+  }
+
   return (
     <>
       <form
-        className="d-flex flex-column bg-warning p-4 rounded    "
+        className="d-flex flex-column bg-warning p-4 rounded"
         style={{ width: "480px" }}
-        action=""
+        onSubmit={handleSplitBill}
       >
         <p className="text-center h4">Split a bill with {selectedFriend.name}</p>
         <label className="d-flex align-items-center justify-content-between p-2">
@@ -24,10 +31,14 @@ const SplitForm = ({ selectedFriend }) => {
           />
         </label>
         <label className="d-flex align-items-center justify-content-between p-2">
-          <span>Your Expense:</span>{" "}
+          <span>Your Expense:</span>
           <input
             value={paidByUser}
-            onChange={(e) => setPaidByUser((Number(e.target.value)) > bill ? paidByUser : (Number(e.target.value)))}
+            onChange={(e) =>
+              setPaidByUser(
+                Number(e.target.value) > bill ? paidByUser : Number(e.target.value)
+              )
+            }
             className="form-control w-50"
             type="number"
           />
